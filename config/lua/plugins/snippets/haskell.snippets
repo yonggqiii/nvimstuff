@@ -1,0 +1,78 @@
+snippet langex Language Pragma
+  {-# LANGUAGE ${0}#-}
+
+snippet dec Declaration
+	${1:f} :: ${2:Int -> Int}
+
+snippet def Declaration and definition
+	${1:} :: ${2:Int -> Int}
+	$1${3} = $4
+
+snippet cls Class declaration
+	class ${1} where
+		${2}
+
+snippet inst Instance Declaration
+	instance ${1} where
+		${2}
+
+snippet gadt GADT Declaration
+	data ${1:} where
+		${2:} :: ${3:} -> ${4:$1}
+
+snippet \forall Polymorphic Function Type
+	∀${1}. ${2}
+
+snippet \alpha α
+	α
+
+snippet \beta β
+	β
+
+snippet \in ∈
+  ∈
+
+snippet \land ∧
+	∧
+
+snippet \lor ∨
+	∨
+
+snippet \pi π
+	π
+
+snippet \div ÷
+	÷
+
+snippet \times ×
+	×
+
+snippet \circ ∘
+	∘
+
+snippet \notin ∉
+	∉
+
+snippet \bot ⊥
+	⊥
+
+snippet \divides ∣
+	∣
+
+snippet \notdivides ∤
+	∤
+
+snippet \integers ℤ
+	ℤ
+
+snippet \rationals ℚ
+	ℚ
+
+snippet \epsilon ε
+	ε
+
+snippet \emptyset ∅
+	∅
+
+snippet \oplus ⊕
+	⊕
