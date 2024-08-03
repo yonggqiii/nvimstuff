@@ -56,14 +56,14 @@ M.base_30 = {
   one_bg = "#24283b",
   one_bg2 = "#414868",
   one_bg3 = "#353b45",
-  grey = "#40486a",
-  grey_fg = "#565f89",
-  grey_fg2 = "#4f5779",
-  light_grey = "#545c7e",
+  grey = "#bbbbbb", -- "#40486a",
+  grey_fg = "#cccccc", --"#565f89",
+  grey_fg2 = "#dddddd",-- "#4f5779",
+  light_grey = "#eeeeee",--"#545c7e",
   red = colors.red,
   baby_pink = colors.peach,
   pink = colors.cursor_bg,
-  line = "#32333e", -- for lines like vertsplit
+  line = "#AAAAAA", -- for lines like vertsplit
   green = colors.green,
   vibrant_green = colors.sign_add_alt,
   nord_blue = colors.hint,
@@ -87,7 +87,7 @@ M.base_16 = {
   base02 = "#2f3549",
   base03 = "#444b6a",
   base04 = "#787c99",
-  base05 = "#a9b1d6",
+  base05 = "#dfefff", --"#a9b1d6",
   base06 = "#cbccd1",
   base07 = "#d5d6db",
   base08 = colors.red,
@@ -107,6 +107,8 @@ M.polish_hl = {
   ["@function.call"] = { fg = M.base_30.blue },
   ["@constant"] = { fg = M.base_30.orange },
   ["@variable.parameter"] = { fg = M.base_30.orange },
+  Operator = { fg = M.base_16.base0F },
+  ["@operator"] = { fg = M.base_16.base0F }
 }
 
 M.type = "dark"

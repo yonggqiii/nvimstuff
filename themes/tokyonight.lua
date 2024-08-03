@@ -47,7 +47,7 @@ M.base_16 = {
   base07 = "#d5d6db",
   base08 = "#73daca",
   base09 = "#ff9e64",
-  base0A = "#0db9d7",
+  base0A = "#fff942",
   base0B = "#9ece6a",
   base0C = "#b4f9f8",
   base0D = "#2ac3de",
@@ -62,6 +62,8 @@ M.polish_hl = {
   ["@function.call"] = { fg = M.base_30.blue },
   ["@constant"] = { fg = M.base_30.orange },
   ["@variable.parameter"] = { fg = M.base_30.orange },
+  Operator = { fg = M.base_16.base08 },
+  ["@operator"] = { fg = M.base_16.base08 }
 }
 
 M.type = "dark"

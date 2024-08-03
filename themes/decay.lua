@@ -59,6 +59,8 @@ M.polish_hl = {
   ["@constant"] = {
     fg = M.base_30.yellow,
   },
+  ["@operator"] = { fg = M.base_16.base0B },
+  Operator = { fg = M.base_16.base0B }
 }
 
 M.type = "dark"

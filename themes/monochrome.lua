@@ -6,13 +6,13 @@ local M = {}
 M.base_30 = {
   white = "#D8DEE9",
   darker_black = "#1a1a1a",
-  black = "#101010", --  nvim bg
-  black2 = "#202020",
-  one_bg = "#242424",
-  one_bg2 = "#2e2e2e",
-  one_bg3 = "#383838",
-  grey = "#424242",
-  grey_fg = "#4c4c4c",
+  black = "#262626", --  nvim bg
+  black2 = "#323232",
+  one_bg = "#3A3A3A",
+  one_bg2 = "#404040",
+  one_bg3 = "#454545",
+  grey = "#4A4A4A",
+  grey_fg = "#4F4F4F",
   grey_fg2 = "#606060",
   light_grey = "#677777",
   red = "#ec8989",
@@ -37,11 +37,11 @@ M.base_30 = {
 }
 
 M.base_16 = {
-  base00 = "#101010",
-  base01 = "#1f1f1f",
-  base02 = "#2e2e2e",
-  base03 = "#383838",
-  base04 = "#424242",
+  base00 = "#262626",
+  base01 = "#2d2D2D",
+  base02 = "#323232",
+  base03 = "#4A4A4A",
+  base04 = "#505050",
   base05 = "#bfc5d0",
   base06 = "#c7cdd8",
   base07 = "#ced4df",
@@ -57,6 +57,8 @@ M.base_16 = {
 
 M.polish_hl = {
   ["@punctuation.bracket"] = { fg = M.base_30.red },
+  Operator = { fg = M.base_16.base0B },
+  ["@operator"] = { fg = M.base_16.base0B }
 }
 
 M.type = "dark"

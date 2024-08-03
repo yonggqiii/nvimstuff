@@ -48,13 +48,17 @@ M.base_16 = {
   base08 = "#eb6f92",
   base09 = "#f6c177",
   base0A = "#ebbcba",
-  base0B = "#31748f",
+  base0B = "#5cb2bf",
   base0C = "#9ccfd8",
   base0D = "#c4a7e7",
   base0E = "#f6c177",
-  base0F = "#524f67",
+  base0F = "#de5b49",
 }
 
+M.polish_hl = {
+  ["@operator"] = { fg = M.base_16.base08 },
+  Operator = { fg = M.base_16.base08 }
+}
 M = require("base46").override_theme(M, "rosepine")
 
 M.type = "dark"

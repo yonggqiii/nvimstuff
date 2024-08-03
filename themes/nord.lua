@@ -46,18 +46,20 @@ M.base_16 = {
   base06 = "#ECEFF4",
   base07 = "#8FBCBB",
   base08 = "#88C0D0",
-  base09 = "#81A1C1",
-  base0A = "#88C0D0",
+  base09 = "#b07d90",
+  base0A = "#cbcc8b",
   base0B = "#A3BE8C",
-  base0C = "#81A1C1",
+  base0C = "#99C989",
   base0D = "#81A1C1",
-  base0E = "#81A1C1",
-  base0F = "#B48EAD",
+  base0E = "#B48EAD",
+  base0F = "#de9c87",
 }
 
 M.polish_hl = {
   ["@punctuation.bracket"] = { fg = M.base_30.white },
   ["@punctuation.delimiter"] = { fg = M.base_30.white },
+  Operator = { fg = M.base_16.base0F },
+  ["@operator"] = { fg = M.base_16.base0F }
 }
 M.type = "dark"
 
