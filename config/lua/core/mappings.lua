@@ -557,4 +557,40 @@ M.MarkdownPreview = {
   }
 }
 
+M.HsTools = {
+  plugin = true,
+  n = {
+    ["<leader>cl"] = {
+      vim.lsp.codelens.run,
+      'Code Lens'
+    },
+    ["<leader>hs"] = {
+        function()
+          require("haskell-tools").hoogle.hoogle_signature()
+        end,
+      "Hoogle Signature"
+    },
+    ["<leader>ea"] = {
+        function()
+          require("haskell-tools").lsp.buf_eval_all()
+        end,
+      "Eval all code snippets"
+    }
+  }
+}
+
+M.trouble = {
+  plugin = true,
+  n = {
+    ["<leader>tr"] = { "<cmd>Trouble diagnostics toggle<cr>", "Diagnostics (Trouble)" },
+    ["<leader>tx"] = {"<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagnostics (Trouble)" },
+    ["<leader>tc"] = { "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols (Trouble)" },
+    ["<leader>tl"] = { "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "LSP Definitions / references / ... (Trouble)" },
+    ["<leader>tL"] = { "<cmd>Trouble loclist toggle<cr>", "Location List (Trouble)" },
+    ["<leader>tq"] = {"<cmd>Trouble qflist toggle<cr>", "Quickfix List (Trouble)"}
+  }
+}
+
 return M
+
+

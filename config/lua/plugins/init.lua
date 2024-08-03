@@ -290,6 +290,32 @@ local default_plugins = {
       },
       mappings = true,
     }
+  },
+  {
+    'mrcjkb/haskell-tools.nvim',
+    version = '^4', -- Recommended
+    lazy = false, -- This plugin is already lazy
+    init = function()
+      require("core.utils").load_mappings "HsTools"
+    end
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+  },
+  {
+    "folke/trouble.nvim",
+    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    cmd = "Trouble",
+    init = function()
+      require("core.utils").load_mappings "trouble"
+    end
   }
 }
 

@@ -1,2 +1,35 @@
 snippet #! Python 3 header
 	#!/usr/bin/env python3
+
+snippet dataclass Dataclass Definition
+  @dataclass
+  class ${1}:
+      ${2}: ${3}
+
+snippet class Class Definition
+  class ${1}:
+      def __init__(self${2})${3}:
+          ${4}
+
+snippet repr __repr__ Method Definition
+  def __repr__(self) -> str:
+      ${1}
+
+snippet init Class Initializer Definition
+  def __init__(self${1}):
+      ${2}
+
+snippet def Function/Method Definition
+  def ${1}(${2})${3}:
+      ${4}
+
+snippet match match/case block
+    match ${1}:
+        case ${2}:
+            ${3}
+
+snippet lscomp List Comprehension
+    [${1} for ${2} in ${3}]
+
+snippet dcomp Set/Dictionary Comprehension
+    {${1} for ${2} in ${3}}
