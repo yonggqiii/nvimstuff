@@ -1,7 +1,7 @@
 ---@type ChadrcConfig
 local M = {}
 
-M.ui = { theme = 'decay',
+M.ui = { theme = 'catppuccin',
   hl_override =
     {
       Type = { italic = true },

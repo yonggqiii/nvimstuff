@@ -316,6 +316,34 @@ local default_plugins = {
     init = function()
       require("core.utils").load_mappings "trouble"
     end
+  },
+  {
+    'renerocksai/telekasten.nvim',
+    dependencies = {'nvim-telescope/telescope.nvim'},
+    lazy = true,
+    init = function()
+      require("core.utils").load_mappings "telekasten"
+    end
+  },
+  {
+    'renerocksai/calendar-vim',
+    lazy = false
+  },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {}
+  },
+  {
+    'jbyuki/nabla.nvim',
+    init = function()
+      require("core.utils").load_mappings "nabla"
+    end
+
   }
 }
 
@@ -327,3 +355,36 @@ end
 
 require("lazy").setup(default_plugins, config.lazy_nvim)
 require("oil").setup()
+require('telekasten').setup({
+  home = vim.fn.expand("~/Notes/"),
+  take_over_my_home = false,
+  auto_set_filetype = false,
+  dailies = vim.fn.expand("~/Notes/Daily Notes/2024/"),
+  template_new_daily = vim.fn.expand("~/Notes/Templates/daily.md"),
+  template_new_weekly = vim.fn.expand("~/Notes/Templates/weekly.md"),
+  follow_creates_nonexisting = false
+})
+require('render-markdown').setup({
+  enabled = true,
+  latex = {
+    enabled = false
+  }
+})
+
+-- markdown-preview settings
+vim.g.mkdp_markdown_css = vim.fn.expand("~/.config/nvim/data/markdown.css")
+vim.g.mkdp_highlight_css = vim.fn.expand("~/.config/nvim/data/highlight.css")
+vim.g.mkdp_theme = 'light'
+
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.zimbu = {
+  install_info = {
+    url = "~/projects/tree-sitter-latex", -- local path or git repo
+    files = {"src/parser.c", "src/scanner.c"}, -- note that some parsers also require src/scanner.c or src/scanner.cc
+    -- optional entries:
+    branch = "main", -- default branch in case of git repo if different from master
+    generate_requires_npm = false, -- if stand-alone parser without npm dependencies
+    requires_generate_from_grammar = false, -- if folder contains pre-generated src/parser.c
+  },
+  filetype = "tex", -- if filetype does not match the parser name
+}

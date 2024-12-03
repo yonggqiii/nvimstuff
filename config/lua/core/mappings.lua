@@ -276,6 +276,7 @@ M.telescope = {
     ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
     ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
     ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
+    ["<leader>fy"] = { "<cmd> Telescope symbols <CR>", "Insert symbol" },
     ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
 
     -- git
@@ -588,6 +589,37 @@ M.trouble = {
     ["<leader>tl"] = { "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "LSP Definitions / references / ... (Trouble)" },
     ["<leader>tL"] = { "<cmd>Trouble loclist toggle<cr>", "Location List (Trouble)" },
     ["<leader>tq"] = {"<cmd>Trouble qflist toggle<cr>", "Quickfix List (Trouble)"}
+  }
+}
+
+M.telekasten = {
+  plugin = true,
+  n = {
+    ["<leader>z"] = { "<cmd>Telekasten panel<cr>", "Open Telekasten command palette" },
+    ["<leader>zff"] = { "<cmd>Telekasten find_notes<cr>", "Find notes by title" },
+    ["<leader>zt"] = { "<cmd>Telekasten show_tags<cr>", "Show tags"},
+    ["<leader>zfd"] = { "<cmd>Telekasten find_daily_notes<cr>", "Find daily notes" },
+    ["<leader>zgp"] = { "<cmd>Telekasten search_notes<cr>", "Search (grep) in all notes" },
+    ["<leader>zil"] = { "<cmd>Telekasten insert_link<cr>", "Insert link into note" },
+    ["<leader>zgl"] = { "<cmd>Telekasten follow_link<cr>", "Follow link under cursor"},
+    ["<leader>zgd"] = { "<cmd>Telekasten goto_today<cr>", "Go to today's daily note" },
+    ["<leader>znn"] = {"<cmd>Telekasten new_note<CR>", "Create new note" },
+    ["<leader>zc"] = { "<cmd>Telekasten show_calendar<CR>", "Show calendar"},
+    ["<leader>zgw"] = { "<cmd>Telekasten goto_thisweek<cr>", "Go to this week's weekly note" },
+    ["<leader>zfw"] = { "<cmd>Telekasten find_weekly_notes<cr>", "Find weekly notes" },
+    ["<leader>ztt"] = {"<cmd>Telekasten toggle_todo<cr>", "Toggle to-do status of a line"},
+    ["<leader>zr"] = { "<cmd>Telekasten rename_note<cr>", "Rename note" },
+    ["<leader>zgv"] = { "<cmd>Telekasten switch_vault<cr>", "Switch vault" },
+    ["<leader>zfb"] = { "<cmd>Telekasten show_backlinks<cr>", "Show backlinks" },
+    ["<leader>zfz"] = { "<cmd>Telekasten find_friends<cr>", "Show all notes linking to the link under the cursor" },
+    ["<leader>zy"] = {"<cmd>Telekasten yank_notelink<cr>", "Yank a link to the currently open note" }
+  }
+}
+
+M.nabla = {
+  plugin = true,
+  n = {
+    ["<leader>lt"] = { '<cmd>lua require("nabla").popup()<CR>', 'Show LaTeX formula'}
   }
 }
 

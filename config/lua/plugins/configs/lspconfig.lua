@@ -72,7 +72,15 @@ require("lspconfig")["hls"].setup {
 -- pyright
 require("lspconfig").pyright.setup { }
 
--- marksman
-require("lspconfig").marksman.setup { }
+-- -- marksman
+-- require("lspconfig").marksman.setup { }
 
+-- ltex
+require("lspconfig").ltex.setup {
+  settings = {
+    ltex = {
+      language = "en-GB"
+    }
+  }
+}
 return M

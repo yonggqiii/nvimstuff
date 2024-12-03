@@ -1,5 +1,5 @@
 local options = {
-  ensure_installed = { "lua-language-server", "pyright", "haskell-language-server", "marksman" }, -- not an option from mason.nvim
+  ensure_installed = { "lua-language-server", "pyright", "haskell-language-server", "ltex-ls" }, -- not an option from mason.nvim
 
   PATH = "skip",
 
