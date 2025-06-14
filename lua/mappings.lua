@@ -5,7 +5,7 @@ require "nvchad.mappings"
 local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
+map("i", "kj", "<ESC>")
 
 -- Flash
 map({ "n", "x", "o" }, "<leader>fs", "<cmd>lua require('flash').jump()<cr>", { desc = "Flash Search" })
@@ -38,3 +38,9 @@ map({ "n", "x" }, "0", "g0")
 
 -- Typst Preview
 map("n", "<leader>typ", "<cmd>TypstPreviewToggle<cr><cmd>TypstPreviewSyncCursor<cr>", { desc = "Typst Preview" })
+
+-- Latex Preview
+map("n", "<leader>tex", "<cmd>VimtexCompile<cr>", { desc = "Run LaTeX Preview" })
+
+-- Markdown Preview
+map("n", "<leader>mm", "<cmd>MarkdownPreview<cr>", { desc = "Markdown Preview" })
