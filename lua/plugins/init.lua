@@ -140,4 +140,53 @@ return {
       vim.g.vimtex_view_method = "zathura"
     end,
   },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    dependencies = {
+      { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
+      { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
+    },
+    build = "make tiktoken", -- Only on MacOS or Linux
+    opts = {
+      -- See Configuration section for options
+    },
+    -- See Commands section for default commands if you want to lazy load on them
+    cmd = {
+      "CopilotChat",
+      "CopilotChatOpen",
+      "CopilotChatClose",
+      "CopilotChatToggle",
+      "CopilotChatStop",
+      "CopilotChatReset",
+      "CopilotChatSave",
+      "CopilotChatLoad",
+      "CopilotChatPrompts",
+      "CopilotChatModels",
+      "CopilotChatAgents",
+    },
+  },
+  {
+    "folke/zen-mode.nvim",
+    cmd = {
+      "ZenMode",
+    },
+    opts = {
+      window = {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+        backdrop = 1,
+        width = 80,
+        options = {
+          number = false,
+        },
+      },
+      plugins = {
+        kitty = {
+          enabled = true,
+          font = "+4",
+        },
+      },
+    },
+  },
 }

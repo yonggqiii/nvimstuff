@@ -37,10 +37,25 @@ map({ "n", "x" }, "^", "g^")
 map({ "n", "x" }, "0", "g0")
 
 -- Typst Preview
-map("n", "<leader>typ", "<cmd>TypstPreviewToggle<cr><cmd>TypstPreviewSyncCursor<cr>", { desc = "Typst Preview" })
+map(
+  "n",
+  "<leader>typ",
+  "<cmd>TypstPreviewToggle<cr><cmd>TypstPreviewSyncCursor<cr>",
+  { desc = "Typst Toggle live preview" }
+)
 
 -- Latex Preview
-map("n", "<leader>tex", "<cmd>VimtexCompile<cr>", { desc = "Run LaTeX Preview" })
+map("n", "<leader>tex", "<cmd>VimtexCompile<cr>", { desc = "VimTeX Run LaTeX live preview" })
+map("n", "<leader>tec", "<Plug>(vimtex-clean-full)", { desc = "VimTeX Clean fully" })
+map("n", "<leader>tet", "<Plug>(vimtex-toc-toggle)", { desc = "VimTeX Table of Contents" })
 
 -- Markdown Preview
-map("n", "<leader>mm", "<cmd>MarkdownPreview<cr>", { desc = "Markdown Preview" })
+map("n", "<leader>mm", "<cmd>MarkdownPreviewToggle<cr>", { desc = "MarkdownPreview Toggle live preview" })
+
+-- CopilotChat
+map("n", "<leader>ccc", "<cmd>CopilotChatToggle<cr>", { desc = "CopilotChat Toggle" })
+map("n", "<leader>ccs", "<cmd>CopilotChatSave<cr>", { desc = "CopilotChat Save" })
+map("n", "<leader>ccm", "<cmd>CopilotChatModels<cr>", { desc = "CopilotChat See models" })
+
+-- Zen Mode
+map("n", "<leader>z", "<cmd>ZenMode<cr>", { desc = "ZenMode Toggle" })
