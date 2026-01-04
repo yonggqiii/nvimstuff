@@ -149,7 +149,7 @@ local themes = {
 themes["oceanic-next-light"] = oceanic_theme
 
 M.base46 = {
-  theme = "catppuccin",
+  theme = "radium",
 
   changed_themes = themes,
 

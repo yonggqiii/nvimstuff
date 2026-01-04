@@ -4,6 +4,13 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
+map(
+  "n",
+  "<leader>tt",
+  ":lua require('base46').toggle_transparency()<CR>",
+  { noremap = true, silent = true, desc = "Base46 Toggle Background Transparency" }
+)
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "kj", "<ESC>")
 
@@ -59,3 +66,8 @@ map("n", "<leader>ccm", "<cmd>CopilotChatModels<cr>", { desc = "CopilotChat See 
 
 -- Zen Mode
 map("n", "<leader>z", "<cmd>ZenMode<cr>", { desc = "ZenMode Toggle" })
+
+-- LSP
+map("n", "gK", vim.diagnostic.open_float, { desc = "LSP diagnostics" })
+
+map({ "x", "v" }, "p", "P")
