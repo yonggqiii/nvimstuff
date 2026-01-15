@@ -71,3 +71,17 @@ map("n", "<leader>z", "<cmd>ZenMode<cr>", { desc = "ZenMode Toggle" })
 map("n", "gK", vim.diagnostic.open_float, { desc = "LSP diagnostics" })
 
 map({ "x", "v" }, "p", "P")
+
+map("v", "<leader>stt", function()
+  vim.cmd.normal({'"zy', bang = true})
+  local contents = vim.fn.getreg("z")
+  require("nvchad.term").runner {
+    pos = "vsp",
+    cmd = contents,
+    clear_cmd = "",
+  }
+end, { desc = "Terminal Send to terminal"}
+)
+
+map("n", "+", "<cmd>vertical resize +5<cr>", { desc = "Resize Increase Vertical Size" })
+map("n", "-", "<cmd>vertical resize -5<cr>", { desc = "Resize Decrease Vertical Size" })

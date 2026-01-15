@@ -149,7 +149,7 @@ local themes = {
 themes["oceanic-next-light"] = oceanic_theme
 
 M.base46 = {
-  theme = "radium",
+  theme = "aquarium",
 
   changed_themes = themes,
 
@@ -165,5 +165,22 @@ M.nvdash = { load_on_startup = true }
 --     lazyload = false,
 --   },
 -- }
+
+M.term = {
+  sizes = {
+    sp = 0.3,
+    vsp = 0.5,
+    ["bo sp"] = 0.3,
+    ["bo vsp"] = 0.5,
+  },
+  float = {
+    row = 0.25,
+    col = 0.25,
+    width = 0.5,
+    height = 0.5,
+    border = "double",
+  },
+  winopts = { winfixbuf = true },
+}
 
 return M
