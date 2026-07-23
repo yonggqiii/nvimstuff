@@ -27,6 +27,7 @@ return {
     event = { "InsertEnter", "CmdLineEnter" },
 
     dependencies = {
+      'Kaiser-Yang/blink-cmp-avante',
       "rafamadriz/friendly-snippets",
       {
         -- snippet plugin
@@ -55,82 +56,95 @@ return {
       cmdline = { enabled = true },
       appearance = { nerd_font_variant = "normal" },
       fuzzy = { implementation = "prefer_rust" },
-      sources = { default = { "lsp", "snippets", "buffer", "path" } },
+      sources = { default = { 'avante', "lsp", "snippets", "buffer", "path" },
+      providers = {
+        avante = {
+          module = 'blink-cmp-avante',
+          name = 'Avante',
+          opts = { }
 
-      keymap = {
-        preset = "default",
-        ["<CR>"] = { "accept", "fallback" },
-        ["<C-b>"] = { "scroll_documentation_up", "fallback" },
-        ["<C-f>"] = { "scroll_documentation_down", "fallback" },
-        ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
-        ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+        }
+      }
+
+    },
+
+    keymap = {
+      preset = "default",
+      ["<CR>"] = { "accept", "fallback" },
+      ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+      ["<C-f>"] = { "scroll_documentation_down", "fallback" },
+      ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+      ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+    },
+
+    completion = {
+      ghost_text = { enabled = true },
+      documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 200,
+        window = { border = "single" },
       },
 
-      completion = {
-        ghost_text = { enabled = true },
-        documentation = {
-          auto_show = true,
-          auto_show_delay_ms = 200,
-          window = { border = "single" },
-        },
-
-        -- from nvchad/ui plugin
-        -- exporting the ui config of nvchad blink menu
-        -- helps non nvchad users
-        menu = require("nvchad.blink").menu,
-        list = {
-          selection = { preselect = false },
-        },
+      -- from nvchad/ui plugin
+      -- exporting the ui config of nvchad blink menu
+      -- helps non nvchad users
+      menu = require("nvchad.blink").menu,
+      list = {
+        selection = { preselect = false },
       },
     },
   },
+},
 
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "vim",
-        "lua",
-        "vimdoc",
-        "html",
-        "css",
-        "haskell",
-        "python",
-        "java",
-        "zig",
-        "javascript",
-      },
-    },
-  },
-  {
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    opts = {},
-  },
-  {
-    "folke/trouble.nvim",
-    opts = {}, -- for default options, refer to the configuration section for custom setup.
-    cmd = "Trouble",
-  },
-  {
-    "chomosuke/typst-preview.nvim",
-    lazy = false, -- or ft = 'typst'
-    version = "1.*",
-    opts = {}, -- lazy.nvim will implicitly calls `setup {}`
-  },
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    build = "cd app && yarn install",
-    init = function()
-      vim.g.mkdp_filetypes = { "markdown" }
-    end,
-    ft = { "markdown" },
-  },
-  {
-    "github/copilot.vim",
-    cmd = { "Copilot" },
-  },
+{
+  "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate"
+  -- opts = {
+  --   ensure_installed = {
+  --     "vim",
+  --     "lua",
+  --     "vimdoc",
+  --     "html",
+  --     "css",
+  --     "haskell",
+  --     "python",
+  --     "java",
+  --     "zig",
+  --     "javascript",
+  --     "yaml"
+  --   },
+  -- },
+},
+
+{
+  "folke/flash.nvim",
+  event = "VeryLazy",
+  opts = {},
+},
+
+{
+  "folke/trouble.nvim",
+  opts = {}, -- for default options, refer to the configuration section for custom setup.
+  cmd = "Trouble",
+},
+
+{
+  "chomosuke/typst-preview.nvim",
+  lazy = false, -- or ft = 'typst'
+  version = "1.*",
+  opts = {}, -- lazy.nvim will implicitly calls `setup {}`
+},
+
+{
+  "iamcco/markdown-preview.nvim",
+  cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+  build = "cd app && yarn install",
+  init = function()
+    vim.g.mkdp_filetypes = { "markdown" }
+  end,
+  ft = { "markdown" },
+},
+
   {
     "lervag/vimtex",
     lazy = false, -- we don't want to lazy load VimTeX
@@ -140,31 +154,12 @@ return {
       vim.g.vimtex_view_method = "zathura"
     end,
   },
+
   {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    dependencies = {
-      { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
-      { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
-    },
-    build = "make tiktoken", -- Only on MacOS or Linux
-    opts = {
-      -- See Configuration section for options
-    },
-    -- See Commands section for default commands if you want to lazy load on them
-    cmd = {
-      "CopilotChat",
-      "CopilotChatOpen",
-      "CopilotChatClose",
-      "CopilotChatToggle",
-      "CopilotChatStop",
-      "CopilotChatReset",
-      "CopilotChatSave",
-      "CopilotChatLoad",
-      "CopilotChatPrompts",
-      "CopilotChatModels",
-      "CopilotChatAgents",
-    },
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown", "codecompanion" }
   },
+
   {
     "folke/zen-mode.nvim",
     cmd = {
@@ -197,16 +192,6 @@ return {
     dependencies = {
       "neovim/nvim-lspconfig",
       "nvim-lua/plenary.nvim",
-
-      -- optional dependencies:
-
-      -- a completion engine
-      --    hrsh7th/nvim-cmp or Saghen/blink.cmp are popular choices
-
-      -- 'nvim-telescope/telescope.nvim', -- for 2 Lean-specific pickers
-      -- 'andymass/vim-matchup',          -- for enhanced % motion behavior
-      -- 'andrewradev/switch.vim',        -- for switch support
-      -- 'tomtom/tcomment_vim',           -- for commenting
     },
 
     ---@type lean.Config

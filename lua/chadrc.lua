@@ -149,7 +149,7 @@ local themes = {
 themes["oceanic-next-light"] = oceanic_theme
 
 M.base46 = {
-  theme = "aquarium",
+  theme = "wob",
 
   changed_themes = themes,
 
@@ -181,6 +181,24 @@ M.term = {
     border = "double",
   },
   winopts = { winfixbuf = true },
+}
+
+require('nvim-treesitter').setup {
+  -- Directory to install parsers and queries to (prepended to `runtimepath` to have priority)
+  install_dir = vim.fn.stdpath('data') .. '/site'
+}
+require('nvim-treesitter').install { 
+      "vim",
+      "lua",
+      "vimdoc",
+      "html",
+      "css",
+      "haskell",
+      "python",
+      "java",
+      "zig",
+      "javascript",
+      "yaml"
 }
 
 return M

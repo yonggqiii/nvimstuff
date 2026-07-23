@@ -1,9 +1,9 @@
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    -- css = { "prettier" },
-    -- html = { "prettier" },
-    -- python = { "black" },
+    css = { "prettier" },
+    html = { "prettier" },
+    python = { "black" },
     haskell = { "fourmolu" },
     zig = { "zigfmt" },
     javascript = { "prettier" },

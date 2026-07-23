@@ -59,11 +59,6 @@ map("n", "<leader>tet", "<Plug>(vimtex-toc-toggle)", { desc = "VimTeX Table of C
 -- Markdown Preview
 map("n", "<leader>mm", "<cmd>MarkdownPreviewToggle<cr>", { desc = "MarkdownPreview Toggle live preview" })
 
--- CopilotChat
-map("n", "<leader>ccc", "<cmd>CopilotChatToggle<cr>", { desc = "CopilotChat Toggle" })
-map("n", "<leader>ccs", "<cmd>CopilotChatSave<cr>", { desc = "CopilotChat Save" })
-map("n", "<leader>ccm", "<cmd>CopilotChatModels<cr>", { desc = "CopilotChat See models" })
-
 -- Zen Mode
 map("n", "<leader>z", "<cmd>ZenMode<cr>", { desc = "ZenMode Toggle" })
 
